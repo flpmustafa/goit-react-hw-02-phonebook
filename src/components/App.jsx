@@ -55,6 +55,7 @@ export class App extends Component {
           contacts={visibleContacts}
           onDeleted={this.handleDeleteContact}
         >
+          
           <Filter filter={filter} onChange={this.handleFilterChange} />
         </ContactList>
       </>
