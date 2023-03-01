@@ -1,36 +1,32 @@
+//import { PropTypes } from 'prop-types';
+import ContactListItem from '../ContactListItem/ContactListItem';
 import css from '../ContactList/ContactList.module.css';
 
+
 const ContactList = ({ contacts, onDeleted, children }) => {
+  
   return (
     <div className={css.contact__list}>
       <h2>Contacts</h2>
-      {children}
+      { children }
       <ul className={css.contact__roster}>
-        {contacts.length === 0 ? null : (
+        {contacts.length > 0 ? (
           <>
-            {contacts.map(contact => {
-              return (
-                <li 
-                 key={contact.id}
-                 className={css.contact__item}>
-                  <p>
-                    <span>{contact.name} : </span>
-                    {contact.number}
-                  </p>
-                  <button 
-                    className={css.btn__list}
-                    onClick={() => {
-                      onDeleted(contact.id);
-                    }}
-                  >
-                    Delete
-                  </button>
-                </li>
-              );
-            })}
+            {contacts.map(({ id, name, number }) => (
+            <ContactListItem 
+                key={id}
+                id={id}
+                name={name}
+                number={number}
+                onDeleted={onDeleted}
+                />
+            ))}
           </>
+        ) : (
+        <p> Your phonebook is empty. Please add contact. </p> 
         )}
       </ul>
+
     </div>
   );
 };
