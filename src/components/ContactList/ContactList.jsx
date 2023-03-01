@@ -1,4 +1,3 @@
-//import { PropTypes } from 'prop-types';
 import ContactListItem from '../ContactListItem/ContactListItem';
 import css from '../ContactList/ContactList.module.css';
 
@@ -23,7 +22,7 @@ const ContactList = ({ contacts, onDeleted, children }) => {
             ))}
           </>
         ) : (
-        <p> Your phonebook is empty. Please add contact. </p> 
+        <p> Your phonebook is empty. Please add contact.</p> 
         )}
       </ul>
 
